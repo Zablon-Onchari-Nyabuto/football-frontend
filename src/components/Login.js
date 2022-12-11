@@ -20,6 +20,7 @@ function Login({ setUser }) {
           setUser(user)
           navigate("/")
           localStorage.setItem("me", JSON.stringify(user))
+          localStorage.setItem("loggedIn", true)
         });
       }
     });

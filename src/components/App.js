@@ -4,7 +4,8 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
- 
+import Reviews from "./Reviews";
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -20,21 +21,18 @@ function App() {
 
   return (
     <BrowserRouter>
-    <>
-      <NavBar user={user} setUser={setUser} />
-      <main>
-        {user ? (
-            <Routes>
-              <Route path={"/"} element={<Home user={user} />} />
-            </Routes>
-        ) : (
-            <Routes>
-              <Route path={'/login'} element={<Login setUser={setUser} />} />
-              <Route path={"/signup"} element={<SignUp setUser={setUser} />} />
-            </Routes>
-        )}
-      </main>
-    </>
+      <>
+        <NavBar />
+        <main>
+          <Routes>
+            <Route exact path={"/reviews"} element={<Reviews user={user} />} />
+            <Route exact path="/reviews/:id" element={<Reviews />} />
+            <Route exact path={"/login"} element={<Login setUser={setUser} />} />
+            <Route exact path={"/signup"} element={<SignUp setUser={setUser} />} />
+            <Route path={"/"} element={<Home user={user} />} />
+          </Routes>
+        </main>
+      </>
     </BrowserRouter>
   );
 }

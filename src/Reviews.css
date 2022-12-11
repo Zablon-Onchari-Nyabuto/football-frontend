@@ -1,0 +1,19 @@
+.reviews-parent{
+    height: auto;
+    width: auto;
+    background-color: moccasin;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+}
+/* .reviews-card{
+    width:auto;
+    height: auto;
+    background-color: moccasin;
+    border-radius: 12px;
+    margin-left: 20px;
+    border: 1.5px solid #000000;
+} */
+.reviews-secondary{
+    margin-top: 10px;
+}

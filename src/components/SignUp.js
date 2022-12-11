@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function SignUp({ setUser }) {
+  const navigate = useNavigate(); 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -19,7 +21,12 @@ function SignUp({ setUser }) {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          setUser(user)
+          navigate("/")
+          localStorage.setItem("me", JSON.stringify(user))
+          localStorage.setItem("loggedIn", true)
+        });
       }
     });
   }
