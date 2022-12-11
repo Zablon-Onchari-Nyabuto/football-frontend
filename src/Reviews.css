@@ -1,7 +1,7 @@
 .reviews-parent{
     height: auto;
     width: auto;
-    background-color: moccasin;
+    background-color: rgb(65, 197, 65);
     margin-left: auto;
     margin-right: auto;
     border-radius: 12px;
@@ -16,4 +16,5 @@
 } */
 .reviews-secondary{
     margin-top: 10px;
+    justify-content: center;
 }

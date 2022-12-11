@@ -5,6 +5,7 @@ import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import Reviews from "./Reviews";
+import '../App.css';
 
 function App() {
   const [user, setUser] = useState(null);

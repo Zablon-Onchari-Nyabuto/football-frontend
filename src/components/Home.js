@@ -23,7 +23,7 @@ function Home({ user }) {
     );
 
   } else {
-    return <h1>Please Login or Sign Up</h1>;
+    return <h1>Hello and welcome to the Football Fan Reviews. To get started, kindly login or Sign Up and interact with millions of other football fans</h1>;
   }
 }
 

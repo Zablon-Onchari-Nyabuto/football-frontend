@@ -8,39 +8,33 @@ function Reviews({ onUpdateReview, onDelete, user }) {
 
     useEffect(() => {
 
-        // if (localStorage.getItem("me")) {
-        //     navigate("/")
-        // } else {
-        //     navigate("/reviews")
-        // }
-
         fetch(`http://127.0.0.1:3000/reviews`)
             .then((r) => r.json())
             .then((reviews) => setReviews(reviews));
     }, []);
     console.log(reviews)
 
-    // function handleDelete(e) {
-    //     e.preventDefault()
-    //     fetch("http://127.0.0.1:3000/reviews", {
-    //       method: "DELETE",
-    //     })
-    //     .then((r) => r.json())
-    //     .then((reviews) => onDelete(reviews));
-    //   }
-    // function handleUpdate() {
-    //     fetch("http://127.0.0.1:3000/reviews/id", {
-    //       method: "PATCH",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify({ reviews }),
-    //     })
-    //       .then((r) => r.json())
-    //       .then((updatedReview) => {
-    //         onUpdateReview(updatedReview);
-    //       });
-    //   }
+    function handleDelete(e) {
+        e.preventDefault()
+        fetch("http://127.0.0.1:3000/reviews", {
+          method: "DELETE",
+        })
+        .then((r) => r.json())
+        .then((reviews) => onDelete(reviews));
+      }
+    function handleUpdate() {
+        fetch("http://127.0.0.1:3000/reviews/id", {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ reviews }),
+        })
+          .then((r) => r.json())
+          .then((updatedReview) => {
+            onUpdateReview(updatedReview);
+          });
+      }
 
     return (
         <div className='reviews-parent' >
@@ -52,8 +46,8 @@ function Reviews({ onUpdateReview, onDelete, user }) {
                             <h4>Match: {`${review.match}`}</h4>
                             <h4>Date: {`${review.date}`}</h4>
                             <h4>Description: {`${review.description}`}</h4>
-                            {/* <button className='update-button' onClick={handleUpdate} >Update</button> */}
-                            {/* <button className='delete-button' onClick={handleDelete} >X</button> */}
+                            <button className='update-button' onClick={handleUpdate} >Update</button>
+                            <button className='delete-button' onClick={handleDelete} >X</button>
                         </>
                     ))}
                 </div>
